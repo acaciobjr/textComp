@@ -1,0 +1,3 @@
+this RPA is being developed to help the user to compare the text present in two or more similar image files in order to inform the text difference between the two. Very useful for those who need to compare lists and extract differences saving time.
+
+Loading...
