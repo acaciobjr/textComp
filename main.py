@@ -5,8 +5,8 @@ from pdf2image import convert_from_path
 import difflib
 
 #caminhos
-caminho1 = r"Diretório 1 com a imagem original de texto"
-caminho2 = r"Diretório 2 com a imagem de menos texto que a imagem original"
+caminho1 = r"Diretório onde estará a lista original"
+caminho2 = r"Diretório onde estará a lista com alterações"
 caminho_tesseract = r"C:\Program Files\Tesseract-OCR"
 pytesseract.pytesseract.tesseract_cmd = os.path.join(caminho_tesseract, "tesseract.exe")
 
@@ -95,7 +95,18 @@ def separando(caminho_texto1, caminho_texto2):
         nomes1 = set(texto1)
         nomes2 = set(texto2)
 
-        nomes_ausentes = nomes1.difference(nomes2)
+        nomes_ausentes = nomes1.copy()  # Cria uma cópia de nomes1
 
-        f.write('\n'.join(nomes_ausentes) + "\n")
+        for nome in nomes1:
+            if nome in nomes2:
+                nomes_ausentes.remove(nome)
+
+        nomess=nomes_ausentes.copy()
+        for nm in nomes_ausentes:
+            if nm in nomes2:
+                nomess.remove(nm)
+
+        print(nomess)
+        #f.write('\n'.join(nomes_ausentes))
+
 separando('texto do Diretório1.txt', 'texto do Diretório2.txt')
