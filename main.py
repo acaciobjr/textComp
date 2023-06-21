@@ -95,7 +95,8 @@ def separando(caminho_texto1, caminho_texto2):
         nomes1 = set(texto1)
         nomes2 = set(texto2)
 
-        nomes_ausentes = nomes1.copy()  # Cria uma cópia de nomes1
+        #Cria uma cópia de nomes1
+        nomes_ausentes = nomes1.copy()  
 
         for nome in nomes1:
             if nome in nomes2:
